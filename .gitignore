@@ -17,4 +17,6 @@ meshery-linkerd
 log.txt
 
 .idea
-
+__debug_bin
+linkerd-darwin
+linkerd.yaml

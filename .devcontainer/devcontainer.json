@@ -1,6 +1,6 @@
 {
 	"name": "Meshery-linkerd",
-	"image": "aisuko/golang:v1.14",
+	"image": "aisuko/red-thirteen:rt0.1.1",
 	"runArgs": [ "--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined" ],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -11,14 +11,12 @@
 	"settings": { 
 		"terminal.integrated.shell.linux": "/bin/bash",
 		"go.gopath": "/go",
-		"go.inferGopath": true,
 		"go.useLanguageServer": true
 	},
 
 	// Add the IDs of extensions you want installed when the container is created in the array below.
 	"extensions": [
-		"golang.Go",
-		"eamodio.gitlens"
+		"golang.Go"
 	],
 	
 	// Uncomment the next line to run commands after the container is created.
@@ -28,5 +26,13 @@
 	// "remoteUser": "vscode",
 	"remoteEnv": {
 		"GOPROXY":"https://goproxy.io,direct"
-	}
+//		"SYNC_LOCALHOST_KUBECONFIG":"true"
+	},
+
+	"mounts": [
+		// "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind",
+		// "source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind",
+		// // // Uncomment the next line to also sync certs in your .minikube folder
+		// "source=${env:HOME}${env:USERPROFILE}/.minikube,target=/usr/local/share/minikube-localhost,type=bind"
+	]
 }
